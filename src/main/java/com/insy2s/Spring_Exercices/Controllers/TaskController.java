@@ -24,21 +24,25 @@ public class TaskController {
 
     @PutMapping("/{id}")
     public ResponseEntity<String> putTask(@PathVariable int id, @RequestBody Task updatedTask){
+
         for (Task task : tasks) {
 
             if (task.getId() == id) {
+
                 task.setTitle(updatedTask.getTitle());
                 return ResponseEntity.status(HttpStatus.ACCEPTED).body("Task updated");
             }
         }
-
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Task not found");
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<String> deleteTask(@PathVariable int id){
+
         for (Task task : tasks) {
+
             if (task.getId() == id) {
+
                 tasks.remove(task);
                 return ResponseEntity.status(HttpStatus.ACCEPTED).body("Task deleted");
             }

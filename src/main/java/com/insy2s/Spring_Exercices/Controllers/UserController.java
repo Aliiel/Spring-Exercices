@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     private final HashMap<Integer, String> users = new HashMap<>();
